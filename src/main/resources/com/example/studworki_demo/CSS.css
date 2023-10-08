@@ -1,0 +1,102 @@
+/* Apply the base style to all buttons */
+.button {
+    -fx-background-color: #2980b9;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);
+}
+
+/* Hover effect */
+.button:hover {
+    -fx-background-color: #2980b7;
+}
+
+/* Pressed effect */
+.button:pressed {
+    -fx-background-color: #1d6fa5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 5, 0, 0, 0);
+}
+
+
+/* Apply the base style to the button */
+.transparent-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #000000; /* Text color */
+    -fx-font-size: 14px;
+    -fx-border-width: 1px;
+    -fx-border-color: #000000; /* Border color */
+    -fx-border-radius: 5px; /* Rounded corners */
+}
+
+/* Hover effect */
+.transparent-button:hover {
+    -fx-background-color: #ffffff; /* Background color on hover */
+    -fx-text-fill: #000000; /* Text color on hover */
+}
+
+
+
+.text-field {
+    -fx-background-color: #f2f2f2; /* Background color */
+    -fx-text-fill: #333333; /* Text color */
+    -fx-font-size: 14px;
+    -fx-padding: 5px 10px; /* Padding for text */
+    -fx-border-width: 1px;
+    -fx-border-color: #bdc3c7; /* Border color */
+    -fx-border-radius: 3px; /* Rounded corners */
+}
+
+/* Hover effect */
+.text-field:hover {
+    -fx-border-color: #3498db; /* Border color on hover */
+}
+
+/* Focused effect */
+.text-field:focused {
+    -fx-border-color: #2980b9; /* Border color when focused */
+    -fx-background-color: #ffffff; /* Background color when focused */
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 2px;
+}
+
+/* Disabled state */
+.text-field:disabled {
+    -fx-opacity: 0.7; /* Reduced opacity when disabled */
+}
+
+/* Apply the base style to all Labels */
+.label {
+    -fx-font-size: 48px;
+    -fx-text-fill: #247BA0; /* Text color */
+    -fx-font-family: "Exo 2 Semi Bold" ;
+    -fx-padding: 5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 3, 0, 0, 0);
+}
+
+
+
+/* Disabled state */
+.label:disabled {
+    -fx-opacity: 0.7; /* Reduced opacity when disabled */
+}
+
+.labelLow {
+    -fx-font-size: 14px;
+    -fx-text-fill: #8A95A5; /* Text color */
+    -fx-font-family: "Lora" ;
+    -fx-padding: 5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 3, 0, 0, 0);
+}
+
+
+
+/* Disabled state */
+.labelLow:disabled {
+    -fx-opacity: 0.7; /* Reduced opacity when disabled */
+}
+
+

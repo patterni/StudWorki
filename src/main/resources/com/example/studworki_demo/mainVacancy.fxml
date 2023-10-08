@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="box" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="190.0" prefWidth="500.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.studworki_demo.MainVacancyController">
+   <children>
+      <Label fx:id="title" prefHeight="38.0" prefWidth="375.0" text="Title">
+         <font>
+            <Font name="Doppio One Regular" size="29.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="20.0" top="20.0" />
+         </VBox.margin>
+      </Label>
+      <Label fx:id="city" prefHeight="36.0" prefWidth="230.0" text="Місто">
+         <font>
+            <Font name="Dancing Script SemiBold" size="20.0" />
+         </font>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
+      </Label>
+      <HBox prefHeight="42.0" prefWidth="500.0">
+         <children>
+            <Label fx:id="jobType" prefHeight="35.0" prefWidth="288.0" text="Зайнятість">
+               <font>
+                  <Font name="Dancing Script SemiBold" size="19.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" top="2.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="salary" alignment="CENTER_RIGHT" layoutX="30.0" layoutY="12.0" prefHeight="35.0" prefWidth="202.0" text="Зарплатня">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="15.0" top="2.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox prefHeight="57.0" prefWidth="500.0">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <children>
+            <Button fx:id="saveButton" mnemonicParsing="false" onAction="#savePressed" prefHeight="28.0" prefWidth="116.0" styleClass="transparent" stylesheets="@stylesheet.css" text="Зберегти" textFill="#549fd9">
+               <HBox.margin>
+                  <Insets left="20.0" top="15.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Exo 2 SemiBold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="moreButton" layoutX="10.0" layoutY="20.0" mnemonicParsing="false" styleClass="transparent" stylesheets="@stylesheet.css" text="Детальніше" textFill="#549fd9">
+               <HBox.margin>
+                  <Insets left="230.0" top="15.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Exo 2 SemiBold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>

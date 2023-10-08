@@ -1,0 +1,154 @@
+Job Title: Junior Web Developer
+Description: Розвивайте веб-сайти та додатки.
+Experience Required: Без досвіду
+Employment Type: Повна зайнятість
+Salary: 25000
+City: Вінниця
+/
+Job Title: Social Media Coordinator
+Description: Управління соціальними медіа-акаунтами, створення та планування.
+Experience Required: Не більше 1 року
+Employment Type: Часткова зайнятість
+Salary: 15000
+City: Львів
+/
+Job Title: Content Writer
+Description: Написання цікавих та інформативних статей та текстів для веб-сайтів.
+Experience Required: Не більше 1 року
+Employment Type: Віддалено
+Salary: Договірна
+City: Одеса
+/
+Job Title: Marketing Intern
+Description: Підтримка маркетингових кампаній, аналіз даних та взаємодія з клієнтами.
+Experience Required: Без досвіду
+Employment Type: Часткова зайнятість
+Salary: 8000
+City: Харків
+/
+Job Title: Graphic Design Intern
+Description: Створення графічного контенту для рекламних матеріалів та веб-сайтів.
+Experience Required: Без досвіду
+Employment Type: Повна зайнятість
+Salary: 8000
+City: Херсон
+/
+Job Title: Data Entry Clerk
+Description: Введення та обробка даних в базах даних.
+Experience Required: Без досвіду
+Employment Type: Повна зайнятість
+Salary: 9000
+City: Мукачево
+/
+Job Title: IT Support Technician
+Description: Підтримка користувачів та вирішення технічних проблем.
+Experience Required: Не більше 1 року
+Employment Type: Повна зайнятість
+Salary: 25000
+City: Дніпро
+/
+Job Title: Research Assistant
+Description: Допомога у наукових дослідженнях та збір даних.
+Experience Required: Без досвіду
+Employment Type: Часткова зайнятість
+Salary: 10000
+City: Вінниця
+/
+Job Title: Human Resources Intern
+Description: Підтримка відділу кадрів у рекрутації та адмініструванні.
+Experience Required: Без досвіду
+Employment Type: Повна зайнятість
+Salary: Договірна
+City: Хмельницький
+/
+Job Title: Video Production Assistant
+Description: Допомога в створенні та редагуванні відеоконтенту.
+Experience Required: Без досвіду
+Employment Type: Повна зайнятість
+Salary: 11000
+City: Хмельницький
+/
+Job Title: E-commerce Specialist
+Description: Оптимізація електронного магазину та підтримка електронної комерції.
+Experience Required: Не більше 1 року
+Employment Type: Повна зайнятість
+Salary: 28000
+City: Київ
+/
+Job Title: Data Analyst Intern
+Description: Аналіз даних та підготовка звітів.
+Experience Required: Без досвіду
+Employment Type: Віддалено
+Salary: Договірна
+City: Вінниця
+/
+Job Title: Junior Accountant
+Description: Ведення бухгалтерського обліку та фінансовий аналіз.
+Experience Required: Не більше 1 року
+Employment Type: Повна зайнятість
+Salary: 18000
+City: Ужгород
+/
+Job Title: Event Planning Coordinator
+Description: Планування та координація подій та заходів.
+Experience Required: Без досвіду
+Employment Type: Часткова зайнятість
+Salary: 12000
+City: Чернігів
+/
+Job Title: Junior Copywriter
+Description: Написання рекламних та інформаційних текстів.
+Experience Required: Без досвіду
+Employment Type: Повна зайнятість
+Salary: 14000
+City: Київ
+/
+Job Title: Front-End Developer Intern
+Description: Допомога у розробці інтерфейсів веб-сайтів.
+Experience Required: Без досвіду
+Employment Type: Повна зайнятість
+Salary: Договірна
+City: Вінниця
+/
+Job Title: Administrative Assistant
+Description: Офісний організаційний та адміністративний супровід.
+Experience Required: Без досвіду
+Employment Type: Повна зайнятість
+Salary: 10000
+City: Харків
+/
+Job Title: Video Game Tester
+Description: Тестування відеоігор та звітність про знайдені баги.
+Experience Required: Без досвіду
+Employment Type: Часткова зайнятість
+Salary: 13000
+City: Дніпро
+/
+Job Title: Sales and Marketing Assistant
+Description: Підтримка відділу продажів та маркетингу, робота з клієнтами.
+Experience Required: Без досвіду
+Employment Type: Повна зайнятість
+Salary: 16000
+City: Одеса
+/
+Job Title: Customer Support Representative
+Description: Відповідь на запити клієнтів та надання якісної підтримки.
+Experience Required: Без досвіду
+Employment Type: Віддалено
+Salary: 10000
+City: Одеса
+/
+
+
+
+
+
+
+
+
+
+
+
+
+
+

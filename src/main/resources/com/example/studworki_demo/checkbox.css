@@ -1,0 +1,70 @@
+/* Modern CheckBox Style */
+.check-box {
+    -fx-font-size: 14px; /* Adjust font size as needed */
+    -fx-text-fill: #333; /* Text color */
+}
+
+/* Unchecked CheckBox */
+.check-box > .box {
+    -fx-background-color: #fff; /* Background color when unchecked */
+    -fx-border-color: #666; /* Border color when unchecked */
+    -fx-border-width: 2px; /* Border width */
+    -fx-border-radius: 4px; /* Border corner radius */
+}
+
+.check-box > .box > .mark {
+    -fx-background-color: transparent; /* Transparent background for the checkmark */
+}
+
+/* Hover effect for the CheckBox */
+.check-box:hover > .box {
+    -fx-background-color: #f0f0f0; /* Background color when hovered */
+}
+
+/* Checked CheckBox */
+.check-box:selected > .box {
+    -fx-background-color: #0078d4; /* Background color when checked */
+    -fx-border-color: #0078d4; /* Border color when checked */
+    -fx-text-fill: #fff; /* Text color when checked */
+}
+
+.check-box:selected > .box > .mark {
+    -fx-background-color: #fff; /* Checkmark color when checked */
+}
+
+/* Indeterminate CheckBox */
+.check-box:indeterminate > .box {
+    -fx-background-color: #0078d4; /* Background color when indeterminate */
+    -fx-border-color: #0078d4; /* Border color when indeterminate */
+    -fx-text-fill: #fff; /* Text color when indeterminate */
+}
+
+.check-box:indeterminate > .box > .mark {
+    -fx-background-color: #fff; /* Checkmark color when indeterminate */
+}
+
+/* Focus effect for the CheckBox */
+.check-box:focused > .box {
+    -fx-border-color: #0078d4; /* Border color when focused */
+    -fx-border-width: 2px; /* Increase border width when focused */
+}
+
+/* Disabled CheckBox */
+.check-box:disabled > .box {
+    -fx-opacity: 0.5; /* Reduce opacity for disabled CheckBox */
+}
+
+/* Remove CheckBox focus indicator */
+.check-box .focus-indicator {
+    -fx-faint-focus-color: transparent;
+    -fx-focus-color: transparent;
+}
+
+.button {
+    -fx-background-color: transparent; /* Прозорий фон */
+    -fx-border-width: 0; /* Без рамки */
+    -fx-text-fill: #0078d4; /* Колір тексту кнопки */
+    -fx-font-size: 14px; /* Розмір шрифту */
+    /* Відступи внутрішнього вмісту кнопки */
+}
+/* Стиль кнопки при наведенні курсору */

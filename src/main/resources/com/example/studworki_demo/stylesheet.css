@@ -1,0 +1,106 @@
+.side_anchorPane{
+    -fx-background-color: #353A56;
+    /*-fx-border-color: #2207bb;*/
+    -fx-border-width: 2px, 2px, 2px, 2px;
+    -fx-border-style: solid;
+}
+
+.root{
+    -fx-background-color: #EAEEF4 ;
+}
+.account{
+    -fx-background-color: #F0F0F0;
+    -fx-border-width: 2px, 2px, 2px, 2px;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-border-style: solid;
+}
+.hbox{
+    -fx-background-color: rgba(0,0,0,0);
+    -fx-border-width: 2px, 2px, 2px, 2px;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-border-style: solid;
+}
+
+.innerPaneButton{
+    -fx-background-color: #F0F0F0;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+}
+.innerPaneButton:hover {
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0, 0, 2);
+}
+
+.transparent{
+    -fx-background-color: rgba(0,0,0,0);
+}
+
+.transparent:hover{
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.transparentScroll{
+    -fx-background-color: rgba(0,0,0,0);
+}
+
+
+.round-layout{
+    -fx-border-radius: 58;
+    -fx-border-color: #191717;
+}
+
+.vacButton{
+    -fx-background-color: #26577C;
+    -fx-border-width: 2px, 2px, 2px, 2px;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+}
+.vacButton:hover{
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.choice-box .arrow {
+    -fx-background-color: #0078d4;
+    -fx-shape: "M 0 0 L 5 5 L 10 0 Z";
+}
+
+/* Customize the text field area */
+.choice-box .text-field {
+    -fx-background-color: white;
+    -fx-padding: 5 10 5 10;
+}
+
+/* Customize the list view area */
+.choice-box .list-view {
+    -fx-background-color: white;
+    -fx-padding: 5 0 5 0;
+    -fx-border-width: 1;
+    -fx-border-color: #ccc;
+}
+
+/* Customize the list cell appearance */
+.choice-box .list-cell {
+    -fx-padding: 5 10 5 10;
+}
+
+/* Customize the selected item appearance */
+.choice-box .list-cell:selected {
+    -fx-background-color: #0078d4;
+    -fx-text-fill: white;
+}
+
+/* Customize the drop-down arrow color */
+.choice-box .arrow-button {
+    -fx-background-color: #0078d4;
+    -fx-shape: "M 0 0 L 5 5 L 10 0 Z";
+}
+
+/* Customize the drop-down arrow hover color */
+.choice-box .arrow-button:hover {
+    -fx-background-color: #005bbf;
+}

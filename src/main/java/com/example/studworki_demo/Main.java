@@ -18,7 +18,6 @@ public class Main extends Application {
     public static ArrayList<Vacancy> allVacancies = new ArrayList<>();
     @Override
     public void start(Stage stage) throws IOException {
-        System.out.println("start");
         primaryStage =stage;
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login.fxml"));
         scene = new Scene(fxmlLoader.load(), 520, 400);

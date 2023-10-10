@@ -1,8 +1,12 @@
 package com.example.studworki_demo;
 
+import java.io.Serial;
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Vacancy implements Serializable {
+    @Serial
+    private static final long serialVersionUID = -7569056061404265603L;
     private String jobTitle;
     private String experience;
     private String employmentType;
@@ -27,6 +31,19 @@ public class Vacancy implements Serializable {
     public boolean isSaved(){
         return isSaved;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Vacancy vacancy = (Vacancy) o;
+        return  Objects.equals(jobTitle, vacancy.jobTitle)
+                && Objects.equals(experience, vacancy.experience) && Objects.equals(employmentType, vacancy.employmentType)
+                && Objects.equals(salary, vacancy.salary) && Objects.equals(description, vacancy.description)
+                && Objects.equals(city, vacancy.city);
+    }
+
+
 
     public void setSaved(boolean state){
         this.isSaved=state;

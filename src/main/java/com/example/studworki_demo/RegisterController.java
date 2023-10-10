@@ -98,6 +98,15 @@ public class RegisterController {
         }
     }
 
+    public static void updateUsersInFile(){
+        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(file))) {
+            outputStream.writeObject(accounts);
+            System.out.println("Account updated successfully.");
+        } catch (IOException e) {
+            System.err.println("Error writing to file: " + e.getMessage());
+        }
+    }
+
     public void backButtonOnAction(ActionEvent e){
         Main.primaryStage.setScene(scene);
     }

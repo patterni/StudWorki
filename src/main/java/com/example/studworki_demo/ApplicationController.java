@@ -160,14 +160,10 @@ public class ApplicationController implements Initializable {
 
 
     public void updateVacancies(){
-            MainVacancyController mainVacancyController;
             for(VBox vBox : nodes) {
-                FXMLLoader fxmlLoader = (FXMLLoader) vBox.getProperties().get("fxmlLoader");
-                if (fxmlLoader != null) {
-                    mainVacancyController = fxmlLoader.getController();
-                    Vacancy vacancy = mainVacancyController.getVacancy();
-                    mainVacancyController.setData(vacancy);
-                }}
+                MainVacancyController mainVacancyController = getVacancyControllerOutVBox(vBox);
+                mainVacancyController.setData(mainVacancyController.getVacancy());
+            }
             showElements(getCurrentNodes());
     }
 
@@ -199,12 +195,8 @@ public class ApplicationController implements Initializable {
         int row = 1;
 
         for (VBox mainVacancyBox : nodes) {
-            FXMLLoader fxmlLoader = (FXMLLoader) mainVacancyBox.getProperties().get("fxmlLoader");
-            if (fxmlLoader != null) {
-                MainVacancyController mainVacancyController = fxmlLoader.getController();
-                Vacancy vacancy = mainVacancyController.getVacancy(); // Assuming you have a getVacancy method in your controller.
-                boolean show = selectedEmploymentTypes.isEmpty() || selectedEmploymentTypes.contains(vacancy.getEmploymentType());
-
+            Vacancy vacancy = getVacancyOutVBox(mainVacancyBox);
+            boolean show = selectedEmploymentTypes.isEmpty() || selectedEmploymentTypes.contains(vacancy.getEmploymentType());
                 if (!cityFilter.isEmpty()) {
                     show = show && vacancy.getCity().toLowerCase().equals(cityFilter);
                 }
@@ -229,7 +221,7 @@ public class ApplicationController implements Initializable {
                     grid.add(mainVacancyBox, column++, row);
                 }
 
-            }
+
         }
     }
 
@@ -246,19 +238,24 @@ public class ApplicationController implements Initializable {
         }
     }
 
+    public static Vacancy getVacancyOutVBox(VBox vBox){
+        FXMLLoader fxmlLoader = (FXMLLoader) vBox.getProperties().get("fxmlLoader");
+        MainVacancyController mainVacancyController = fxmlLoader.getController();
+        return mainVacancyController.getVacancy();
+    }
+
+    public static MainVacancyController getVacancyControllerOutVBox(VBox vBox){
+        FXMLLoader fxmlLoader = (FXMLLoader) vBox.getProperties().get("fxmlLoader");
+        return fxmlLoader.getController();
+    }
+
     private List<VBox> searchVacanciesByName(String searchName) {
         List<VBox> matchingVacancies = new ArrayList<>();
-        MainVacancyController controller = null;
         for (VBox vbox : nodes) {
-            FXMLLoader fxmlLoader = (FXMLLoader) vbox.getProperties().get("fxmlLoader");
-            if (fxmlLoader != null) {
-                controller = fxmlLoader.getController();
-            }
-
+            MainVacancyController controller = getVacancyControllerOutVBox(vbox);
             if (controller != null && controller.getName().toLowerCase().contains(searchName.toLowerCase())) {
                 matchingVacancies.add(vbox);
             }
-
         }
         return matchingVacancies;
     }
@@ -297,7 +294,6 @@ public class ApplicationController implements Initializable {
             if (mainVacancyController1 != null && mainVacancyController2 != null) {
                 int salary1 = mainVacancyController1.getIntSalary();
                 int salary2 = mainVacancyController2.getIntSalary();
-                // Порівнюємо зарплати у зворотньому порядку (убывающий порядок)
                 return Integer.compare(salary1, salary2);
             }
             return -1;
@@ -310,21 +306,11 @@ public class ApplicationController implements Initializable {
     }
     private void sortByExperience(){
         Comparator<VBox> experienceComparator=(vbox1,vbox2)->{
-            FXMLLoader fxmlLoader1 = (FXMLLoader) vbox1.getProperties().get("fxmlLoader");
-            FXMLLoader fxmlLoader2 = (FXMLLoader) vbox2.getProperties().get("fxmlLoader");
-            MainVacancyController mainVacancyController1 = null;
-            MainVacancyController mainVacancyController2 = null;
-            if (fxmlLoader1 != null) {
-                mainVacancyController1 = fxmlLoader1.getController();
-            }
-
-            if (fxmlLoader2 != null) {
-                mainVacancyController2 = fxmlLoader2.getController();
-            }
+            MainVacancyController mainVacancyController1 = getVacancyControllerOutVBox(vbox1);
+            MainVacancyController mainVacancyController2 = getVacancyControllerOutVBox(vbox2);
             if (mainVacancyController1 != null && mainVacancyController2 != null) {
                 int exp1 = mainVacancyController1.getIntExp();
                 int exp2 = mainVacancyController2.getIntExp();
-                // Порівнюємо зарплати у зворотньому порядку (убывающий порядок)
                 return Integer.compare(exp2, exp1);
             }
             return -1;
@@ -344,12 +330,9 @@ public class ApplicationController implements Initializable {
 public ArrayList<VBox> getCurrentNodes(){
     ObservableList<Node> children = grid.getChildren();
     ArrayList<VBox> vboxList = new ArrayList<>();
-
-// Проходимося по списку дітей і відфільтровуємо тільки Vbox
     for (Node node : children) {
-        if (node instanceof VBox vbox) {
+        if (node instanceof VBox vbox)
             vboxList.add(vbox);
-        }
     }
     return vboxList;
 }

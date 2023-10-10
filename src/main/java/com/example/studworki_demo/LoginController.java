@@ -15,8 +15,6 @@ import java.io.*;
 import static com.example.studworki_demo.Main.accounts;
 
 public class LoginController {
-    @FXML
-    private Button loginButton;
 
     @FXML
     private PasswordField passwordTextField;
@@ -39,7 +37,9 @@ public class LoginController {
             for(Account account:accounts){
                 if(account.getUsername().equals(userNameTextField.getText())&&account.getPassword().equals(passwordTextField.getText())){
                     loggedIn=account;
+                   // loggedIn.getUsersSavedVacancies().clear();
                     Application.open(loggedIn);
+                    System.out.println(LoginController.getLoggedIn().getUsersSavedVacancies());
                     break;
                 }
             }

@@ -1,14 +1,19 @@
 package com.example.studworki_demo;
 
 import java.io.Serializable;
+import java.lang.reflect.Array;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Account implements Serializable {
-    String firstname;
-    String lastname;
-    String username;
-    LocalDate dateOfBirth;
-    String password;
+    private String firstname;
+    private String lastname;
+    private String username;
+    private LocalDate dateOfBirth;
+    private String password;
+
+    private ArrayList<Vacancy> usersSavedVacancies;
+
     public Account() {
         // Default constructor
     }
@@ -19,7 +24,21 @@ public class Account implements Serializable {
         this.dateOfBirth = dateOfBirth;
         this.password = password;
         this.username=username;
+        this.usersSavedVacancies=new ArrayList<>();
     }
+
+    public void addToUserSavedList(Vacancy vacancy){
+        this.usersSavedVacancies.add(vacancy);
+    }
+
+    public void removeOutUserSavedList(Vacancy vacancy){
+        this.usersSavedVacancies.remove(vacancy);
+    }
+
+    public ArrayList<Vacancy> getUsersSavedVacancies(){
+        return usersSavedVacancies;
+    }
+
 
     public String getFirstname() {
         return firstname;

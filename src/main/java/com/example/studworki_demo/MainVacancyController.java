@@ -19,9 +19,6 @@ public class MainVacancyController {
     private Label city;
 
     @FXML
-    private Button moreButton;
-
-    @FXML
     private Label salary;
 
     @FXML
@@ -37,19 +34,25 @@ public class MainVacancyController {
     public void setData(Vacancy vacancy) {
         title.setText(vacancy.getJobTitle());
         city.setText(vacancy.getCity());
-        if(!vacancy.getSalary().equals("Договірна")){
+        if (!vacancy.getSalary().equals("Договірна")) {
             salary.setText("З/п: " + vacancy.getSalary() + " грн/міс");
-        }else
-            salary.setText("З/п: " +vacancy.getSalary());
+        } else
+            salary.setText("З/п: " + vacancy.getSalary());
 
         jobType.setText(vacancy.getEmploymentType());
         box.setStyle("-fx-background-color: #fff;" + "-fx-background-radius: 15;"
                 + "-fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1),10,0,0,10);");
         this.vacancy = vacancy;
-        if(vacancy.isSaved()){
-            saveButton.setText("Збережено");
-            saveButton.setTextFill(Color.DARKRED);
-        }else {
+        boolean isSaved = false;
+        for (Vacancy vac : LoginController.getLoggedIn().getUsersSavedVacancies()){
+            if (vacancy.equals(vac)) {
+                saveButton.setText("Збережено");
+                saveButton.setTextFill(Color.DARKRED);
+                isSaved =true;
+                break;
+            }
+        }
+        if(!isSaved) {
             saveButton.setText("Зберегти");
             saveButton.setTextFill(Color.web("#549fd9"));
         }
@@ -66,9 +69,8 @@ public class MainVacancyController {
     }
 
     public int getIntExp(){
-        if (vacancy.getExperience().equals("Без досвіду")) {
+        if (vacancy.getExperience().equals("Без досвіду"))
             return 0;
-        }
         return 1;
     }
 
@@ -77,15 +79,20 @@ public class MainVacancyController {
     }
 
     public void savePressed(ActionEvent ignoredEvent){
-        if(saveButton.getText().equals("Зберегти")) {
+        if(saveButton.getText().equals("Зберегти")){
             vacancy.setSaved(true);
+            LoginController.getLoggedIn().addToUserSavedList(vacancy);
+            RegisterController.updateUsersInFile();
             saveButton.setText("Збережено");
             saveButton.setTextFill(Color.DARKRED);
         }else {
             vacancy.setSaved(false);
+            LoginController.getLoggedIn().removeOutUserSavedList(vacancy);
+            RegisterController.updateUsersInFile();
             saveButton.setText("Зберегти");
             saveButton.setTextFill(Color.web("#549fd9"));
         }
+        System.out.println(LoginController.getLoggedIn().getUsersSavedVacancies());
     }
 
     public VBox cloneVBox() {

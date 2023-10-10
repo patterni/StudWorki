@@ -33,25 +33,7 @@ public class Main extends Application {
         primaryStage.show();
 
 
-        if (file.exists() && file.length() > 0) {
-            try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(file))) {
-                Object object = inputStream.readObject();
-                if (object != null) {
-                    if (object instanceof List) {
-                        List<Account> objectList = (List<Account>) object;
-                        for (Object obj : objectList) {
-                            if (obj instanceof Account) {
-                                accounts.add((Account) obj);
-                            }
-                        }
-                    }
-                }
-            } catch (IOException | ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-        }
-        System.out.println(accounts);
-
+        readAccounts();
         readVacancies();
     }
 
@@ -77,6 +59,27 @@ public class Main extends Application {
         allVacancies.clear();
         allVacancies.addAll(loadedVacancies);
         System.out.println(allVacancies);
+    }
+
+    public static void readAccounts(){
+        if (file.exists() && file.length() > 0) {
+            try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(file))) {
+                Object object = inputStream.readObject();
+                if (object != null) {
+                    if (object instanceof List) {
+                        List<Account> objectList = (List<Account>) object;
+                        for (Object obj : objectList) {
+                            if (obj instanceof Account) {
+                                accounts.add((Account) obj);
+                            }
+                        }
+                    }
+                }
+            } catch (IOException | ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println(accounts);
     }
     public static void main(String[] args) {
         launch();

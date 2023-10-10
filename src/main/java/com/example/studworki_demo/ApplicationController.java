@@ -97,9 +97,12 @@ public class ApplicationController implements Initializable {
             numbers.add(i);
         }
         Collections.shuffle(numbers);
+        if(Main.allVacancies.size()>=5){
         for (int i = 0; i < 5; i++) {
             int randomNumber = numbers.get(i);
             popularVacancies.add(Main.allVacancies.get(randomNumber));
+        }}else {
+            popularVacancies.addAll(Main.allVacancies);
         }
 
         int column = 0;

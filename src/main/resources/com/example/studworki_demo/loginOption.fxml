@@ -6,6 +6,6 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.studworki_demo.LoginOptionController">
    <children>
       <Button fx:id="studentButton" layoutX="255.0" layoutY="144.0" mnemonicParsing="false" onAction="#studentPressed" stylesheets="@CSS.css" text="Студент" />
-      <Button fx:id="employerButton" layoutX="234.0" layoutY="200.0" mnemonicParsing="false" stylesheets="@CSS.css" text="Роботодавець" />
+      <Button fx:id="employerButton" layoutX="234.0" layoutY="200.0" mnemonicParsing="false" onAction="#employerPressed" stylesheets="@CSS.css" text="Роботодавець" />
    </children>
 </AnchorPane>

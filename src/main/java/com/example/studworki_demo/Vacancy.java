@@ -1,14 +1,20 @@
 package com.example.studworki_demo;
 
-public class Vacancy {
+import java.io.Serializable;
+
+public class Vacancy implements Serializable {
     private String jobTitle;
     private String experience;
     private String employmentType;
     private String salary;
     private String description;
     private String city;
+    private boolean isSaved;
+    public Vacancy(){
 
-    private boolean isSaved = false;
+    }
+
+
     public Vacancy(String jobTitle, String experience, String employmentType, String salary, String description, String city) {
         this.jobTitle = jobTitle;
         this.experience = experience;
@@ -16,6 +22,7 @@ public class Vacancy {
         this.salary = salary;
         this.description = description;
         this.city=city;
+        this.isSaved = false;
     }
     public boolean isSaved(){
         return isSaved;
@@ -29,7 +36,7 @@ public class Vacancy {
     public String toString() {
         return "Job Title: " + jobTitle + "\nDescription: " + description +
                 "\nExperience Required: " + experience + "\nEmployment Type: " + employmentType +
-                "\nSalary: " + salary + "\nCity: " +city+ "\n/";
+                "\nSalary: " + salary + "\nCity: " +city;
     }
 
     public String getJobTitle() {

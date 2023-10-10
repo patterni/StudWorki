@@ -47,7 +47,6 @@ public class RegisterController {
     @FXML
     private Label usrnMessage;
 
-    public static File file = new File("E:/java/StudWorki_demo/accountBase.bin");
 
     String firstname;
     String lastname;

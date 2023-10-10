@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="510.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.studworki_demo.EmployerWindowController">
+   <children>
+      <Label alignment="CENTER" layoutX="243.0" layoutY="40.0" text="Опублікувати вакансію">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="titleTxt" layoutX="121.0" layoutY="126.0" />
+      <Label layoutX="156.0" layoutY="108.0" text="Назва вакансії" />
+      <TextField fx:id="descTxt" layoutX="45.0" layoutY="201.0" prefHeight="148.0" prefWidth="334.0" />
+      <Label layoutX="45.0" layoutY="183.0" text="Короткий опис" />
+      <ChoiceBox fx:id="eploymentChoice" layoutX="497.0" layoutY="152.0" prefWidth="150.0" />
+      <Label layoutX="530.0" layoutY="130.0" text="Тип зайнятості" />
+      <ChoiceBox fx:id="expChoice" layoutX="497.0" layoutY="243.0" prefWidth="150.0" />
+      <Label layoutX="544.0" layoutY="218.0" text="Досвід" />
+      <TextField fx:id="CityTxt" layoutX="497.0" layoutY="337.0" />
+      <Label layoutX="546.0" layoutY="319.0" text="Місто" />
+      <TextField fx:id="salaryTxt" layoutX="317.0" layoutY="125.0" prefHeight="26.0" prefWidth="106.0" />
+      <Label layoutX="339.0" layoutY="108.0" text="Зарплатня" />
+      <Label layoutX="432.0" layoutY="129.0" text="грн/міс" />
+      <Button fx:id="doneButton" layoutX="581.0" layoutY="411.0" mnemonicParsing="false" onAction="#donePressed" text="Опублікувати" />
+      <Button fx:id="backButton" layoutX="54.0" layoutY="411.0" mnemonicParsing="false" text="Повернутись" />
+   </children>
+</AnchorPane>

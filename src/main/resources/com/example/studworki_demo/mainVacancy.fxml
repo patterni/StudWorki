@@ -58,7 +58,7 @@
                   <Font name="Exo 2 SemiBold" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="moreButton" layoutX="10.0" layoutY="20.0" mnemonicParsing="false" styleClass="transparent" stylesheets="@stylesheet.css" text="Детальніше" textFill="#549fd9">
+            <Button fx:id="moreButton" layoutX="10.0" layoutY="20.0" mnemonicParsing="false" onAction="#detailsPressed" styleClass="transparent" stylesheets="@stylesheet.css" text="Детальніше" textFill="#549fd9">
                <HBox.margin>
                   <Insets left="230.0" top="15.0" />
                </HBox.margin>

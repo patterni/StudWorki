@@ -19,8 +19,8 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         primaryStage =stage;
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login.fxml"));
-        scene = new Scene(fxmlLoader.load(), 520, 400);
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("loginOption.fxml"));
+        scene = new Scene(fxmlLoader.load());
         primaryStage.setTitle("StudWork");
         primaryStage.setScene(scene);
         Image icon = new Image("JStudent.png");

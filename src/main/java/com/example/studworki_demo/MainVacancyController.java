@@ -101,4 +101,8 @@ public class MainVacancyController {
         }
     }
 
+    public void detailsPressed(ActionEvent event) throws IOException {
+        Application.openVacancyDetails(vacancy);
+    }
+
 }

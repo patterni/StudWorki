@@ -32,6 +32,14 @@ public class Application {
         Main.primaryStage.setScene(saveScene);
     }
 
+    public static void openVacancyDetails(Vacancy vacancy) throws IOException {
+        FXMLLoader loader = new FXMLLoader(Application.class.getResource("vacancyDetails.fxml"));
+        Parent root = loader.load();
+        VacancyDetailsController controller = loader.getController();
+        controller.setUser(LoginController.getLoggedIn());
+        controller.setVacancyInfo(vacancy);
+        Main.primaryStage.setScene(new Scene(root));
+    }
 
 
 }

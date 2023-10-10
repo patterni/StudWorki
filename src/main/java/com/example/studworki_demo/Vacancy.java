@@ -13,9 +13,10 @@ public class Vacancy implements Serializable {
     private String salary;
     private String description;
     private String city;
-    private boolean isSaved;
-    public Vacancy(){
 
+
+    public Vacancy(){
+        // Default constructor
     }
 
 
@@ -26,11 +27,9 @@ public class Vacancy implements Serializable {
         this.salary = salary;
         this.description = description;
         this.city=city;
-        this.isSaved = false;
+
     }
-    public boolean isSaved(){
-        return isSaved;
-    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -45,9 +44,7 @@ public class Vacancy implements Serializable {
 
 
 
-    public void setSaved(boolean state){
-        this.isSaved=state;
-    }
+
 
     @Override
     public String toString() {
@@ -91,8 +88,6 @@ public class Vacancy implements Serializable {
     public String getSalary() {
         return salary;
     }
-
-
 
     public void setSalary(String salary) {
         this.salary = salary;

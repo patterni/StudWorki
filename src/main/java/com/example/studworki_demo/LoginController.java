@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -30,18 +29,24 @@ public class LoginController {
     public void loginButtonOnAction(ActionEvent event) throws IOException {
         if(!userNameTextField.getText().isBlank() && !passwordTextField.getText().isBlank()){
             validateLogin();
+        }else {
+            loginMessageLabel.setText("Неправильно введено логін або пароль,\nспробуйте ще раз");
         }
     }
 
     public void validateLogin() throws IOException {
+        boolean successLogIn = false;
             for(Account account:accounts){
                 if(account.getUsername().equals(userNameTextField.getText())&&account.getPassword().equals(passwordTextField.getText())){
                     loggedIn=account;
-                   // loggedIn.getUsersSavedVacancies().clear();
                     Application.open(loggedIn);
                     System.out.println(LoginController.getLoggedIn().getUsersSavedVacancies());
+                    successLogIn =true;
                     break;
                 }
+            }
+            if(!successLogIn){
+                loginMessageLabel.setText("Неправильно введено логін або пароль,\nспробуйте ще раз");
             }
     }
 

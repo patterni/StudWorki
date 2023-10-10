@@ -56,7 +56,7 @@ public class ApplicationController implements Initializable {
     private CheckBox partlyCheck;
     @FXML
     private Button salatyOkButton;
-    public static ArrayList<VBox> nodes = new ArrayList<>();
+
     @FXML
     private TextField searchBar;
 
@@ -66,6 +66,8 @@ public class ApplicationController implements Initializable {
     private final Set<String> selectedEmploymentTypes = new HashSet<>();
 
     private final String[] sortOptions = {"Не сортувати", "Найвища зарплатня", "Спочатку без досвіду"};
+
+    public static ArrayList<VBox> nodes = new ArrayList<>();
 
     public void setUser(Account account) {
         firstName.setText(account.getFirstname());

@@ -2,7 +2,6 @@ package com.example.studworki_demo;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
@@ -80,13 +79,11 @@ public class MainVacancyController {
 
     public void savePressed(ActionEvent ignoredEvent){
         if(saveButton.getText().equals("Зберегти")){
-            vacancy.setSaved(true);
             LoginController.getLoggedIn().addToUserSavedList(vacancy);
             RegisterController.updateUsersInFile();
             saveButton.setText("Збережено");
             saveButton.setTextFill(Color.DARKRED);
         }else {
-            vacancy.setSaved(false);
             LoginController.getLoggedIn().removeOutUserSavedList(vacancy);
             RegisterController.updateUsersInFile();
             saveButton.setText("Зберегти");
@@ -95,20 +92,7 @@ public class MainVacancyController {
         System.out.println(LoginController.getLoggedIn().getUsersSavedVacancies());
     }
 
-    public VBox cloneVBox() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("mainVacancy.fxml"));
-            VBox clonedBox = loader.load();
-            MainVacancyController clonedController = loader.getController();
-            clonedController.setData(this.vacancy); // передаємо дані з оригінального контролера
-            return clonedBox;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    public void detailsPressed(ActionEvent event) throws IOException {
+    public void detailsPressed(ActionEvent ignoredEvent) throws IOException {
         Application.openVacancyDetails(vacancy);
     }
 

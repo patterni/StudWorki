@@ -11,7 +11,6 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class SavedController implements Initializable {
@@ -35,19 +34,12 @@ public class SavedController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        ArrayList<VBox> savedVacancies = new ArrayList<>();
-//        for(VBox vBox : ApplicationController.nodes) {
-//            MainVacancyController mainVacancyController= ApplicationController.getVacancyControllerOutVBox(vBox);
-//            if(mainVacancyController.getVacancy().isSaved()){
-//                savedVacancies.add(mainVacancyController.cloneVBox());
-//            }
-//        }
             int column = 0;
             int row = 1;
         for(Vacancy vacancy: LoginController.getLoggedIn().getUsersSavedVacancies()) {
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("mainVacancy.fxml"));
-            VBox mainVacancyBox = null;
+            VBox mainVacancyBox;
             try {
                 mainVacancyBox = fxmlLoader.load();
             } catch (IOException e) {

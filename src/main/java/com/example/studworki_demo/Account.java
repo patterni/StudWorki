@@ -39,7 +39,6 @@ public class Account implements Serializable {
         return usersSavedVacancies;
     }
 
-
     public String getFirstname() {
         return firstname;
     }

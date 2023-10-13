@@ -3,13 +3,14 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="489.0" prefWidth="766.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.studworki_demo.EmployerWindowController">
+<AnchorPane prefHeight="489.0" prefWidth="766.0" xmlns="http://javafx.com/javafx/17.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.studworki_demo.EmployerWindowController">
    <children>
       <ImageView fitHeight="514.0" fitWidth="766.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -21,12 +22,11 @@
             <Font name="Century Gothic Bold Italic" size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="titleTxt" layoutX="65.0" layoutY="132.0" prefHeight="26.0" prefWidth="181.0" />
+      <TextField fx:id="titleTxt" layoutX="32.0" layoutY="132.0" prefHeight="26.0" prefWidth="242.0" />
       <Label layoutX="91.0" layoutY="105.0" text="Назва вакансії">
          <font>
             <Font name="Noto Sans Italic" size="16.0" />
          </font></Label>
-      <TextField fx:id="descTxt" layoutX="65.0" layoutY="290.0" prefHeight="111.0" prefWidth="622.0" />
       <Label layoutX="65.0" layoutY="257.0" text="Короткий опис">
          <font>
             <Font name="Noto Sans Italic" size="16.0" />
@@ -54,10 +54,11 @@
       <Label layoutX="436.0" layoutY="137.0" text="грн/міс" />
       <Button fx:id="doneButton" layoutX="588.0" layoutY="432.0" mnemonicParsing="false" onAction="#donePressed" prefHeight="41.0" prefWidth="133.0" stylesheets="@CSS.css" text="Опублікувати" />
       <Button fx:id="backButton" layoutX="38.0" layoutY="432.0" mnemonicParsing="false" onAction="#backPressed" prefHeight="41.0" prefWidth="125.0" stylesheets="@CSS.css" text="Повернутись" />
-      <Label fx:id="successLabel" layoutX="184.0" layoutY="441.0" prefHeight="22.0" prefWidth="382.0" textAlignment="CENTER" textFill="#2bdc57">
+      <Label fx:id="successLabel" alignment="CENTER" layoutX="184.0" layoutY="441.0" prefHeight="22.0" prefWidth="382.0" textFill="#2bdc57">
          <font>
             <Font name="Noto Sans Italic" size="16.0" />
          </font>
       </Label>
+      <TextArea fx:id="descTxt" layoutX="55.0" layoutY="287.0" prefHeight="126.0" prefWidth="640.0" />
    </children>
 </AnchorPane>

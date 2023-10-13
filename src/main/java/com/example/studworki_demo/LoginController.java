@@ -41,6 +41,8 @@ public class LoginController {
                     loggedIn=account;
                     Application.open(loggedIn);
                     System.out.println(LoginController.getLoggedIn().getUsersSavedVacancies());
+                    System.out.println();
+                    System.out.println(LoginController.getLoggedIn().getUsersRequests());
                     successLogIn =true;
                     break;
                 }

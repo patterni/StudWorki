@@ -175,10 +175,10 @@ public class ApplicationController implements Initializable {
         selectedEmploymentTypes.clear();
 
         if (partlyCheck.isSelected()) {
-            selectedEmploymentTypes.add("Часткова зайнятість");
+            selectedEmploymentTypes.add("Часткова");
         }
         if (fullCheck.isSelected()) {
-            selectedEmploymentTypes.add("Повна зайнятість");
+            selectedEmploymentTypes.add("Повна");
         }
         if (distanceCheck.isSelected()) {
             selectedEmploymentTypes.add("Віддалено");
@@ -209,11 +209,11 @@ public class ApplicationController implements Initializable {
                 }
 
                 if (noExpSelected && yearExpSelected) {
-                    show = show && (vacancy.getExperience().equals("Без досвіду") || vacancy.getExperience().equals("Не більше 1 року"));
+                    show = show && (vacancy.getExperience().equals("Без досвіду") || vacancy.getExperience().equals("До 1 року"));
                 } else if (noExpSelected) {
                     show = show && vacancy.getExperience().equals("Без досвіду");
                 } else if (yearExpSelected) {
-                    show = show && vacancy.getExperience().equals("Не більше 1 року");
+                    show = show && vacancy.getExperience().equals("До 1 року");
                 }
                 if (show) {
                     if (column == 2) {
@@ -264,12 +264,12 @@ public class ApplicationController implements Initializable {
 
 
 
-    public static <T> void insertionSortDescending(ArrayList<T> list, Comparator<? super T> comparator) {
+    public static <T> void insertionSort(ArrayList<T> list, Comparator<? super T> comparator) {
         for (int i = 1; i < list.size(); i++) {
             T current = list.get(i);
             int j = i - 1;
 
-            while (j >= 0 && comparator.compare(list.get(j), current) < 0) {
+            while (j >= 0 && comparator.compare(list.get(j), current) > 0) {
                 list.set(j + 1, list.get(j));
                 j--;
             }
@@ -280,32 +280,20 @@ public class ApplicationController implements Initializable {
 
     private void sortBySalary(){
         Comparator<VBox> salaryComparator = (vbox1, vbox2) -> {
-            FXMLLoader fxmlLoader1 = (FXMLLoader) vbox1.getProperties().get("fxmlLoader");
-            FXMLLoader fxmlLoader2 = (FXMLLoader) vbox2.getProperties().get("fxmlLoader");
-            MainVacancyController mainVacancyController1 = null;
-            MainVacancyController mainVacancyController2 = null;
-
-            if (fxmlLoader1 != null) {
-                mainVacancyController1 = fxmlLoader1.getController();
-            }
-
-            if (fxmlLoader2 != null) {
-                mainVacancyController2 = fxmlLoader2.getController();
-            }
-
+            MainVacancyController mainVacancyController1 = getVacancyControllerOutVBox(vbox1);
+            MainVacancyController mainVacancyController2 = getVacancyControllerOutVBox(vbox2);
             if (mainVacancyController1 != null && mainVacancyController2 != null) {
                 int salary1 = mainVacancyController1.getIntSalary();
                 int salary2 = mainVacancyController2.getIntSalary();
-                return Integer.compare(salary1, salary2);
+                return Integer.compare(salary2, salary1);
             }
             return -1;
         };
-
         ArrayList<VBox> currentNodes = getCurrentNodes();
-
-        insertionSortDescending(currentNodes, salaryComparator);
+        insertionSort(currentNodes, salaryComparator);
         showElements(currentNodes);
     }
+
     private void sortByExperience(){
         Comparator<VBox> experienceComparator=(vbox1,vbox2)->{
             MainVacancyController mainVacancyController1 = getVacancyControllerOutVBox(vbox1);
@@ -313,12 +301,12 @@ public class ApplicationController implements Initializable {
             if (mainVacancyController1 != null && mainVacancyController2 != null) {
                 int exp1 = mainVacancyController1.getIntExp();
                 int exp2 = mainVacancyController2.getIntExp();
-                return Integer.compare(exp2, exp1);
+                return Integer.compare(exp1, exp2);
             }
             return -1;
         };
         ArrayList<VBox> currentNodes = getCurrentNodes();
-        insertionSortDescending(currentNodes, experienceComparator);
+        insertionSort(currentNodes, experienceComparator);
         showElements(currentNodes);
     }
 
@@ -342,7 +330,14 @@ public ArrayList<VBox> getCurrentNodes(){
 public void openSaved(ActionEvent ignoredEvent) throws IOException {
       Application.openSaved();
       SavedController.savedSet=true;
+}
 
+public void openRequestsScene(ActionEvent event) throws IOException {
+        Application.openRequests();
+}
+
+public void openProfileInfo(ActionEvent event) throws IOException {
+        Application.openProfile();
 }
 
     private double parseSalary(String salary) {

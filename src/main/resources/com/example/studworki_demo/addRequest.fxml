@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -11,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1600.0" snapToPixel="false" xmlns="http://javafx.com/javafx/17.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.studworki_demo.VacancyDetailsController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1600.0" snapToPixel="false" xmlns="http://javafx.com/javafx/17.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.studworki_demo.AddRequestController">
    <top>
       <HBox prefHeight="67.0" prefWidth="1315.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
          <children>
@@ -122,7 +123,7 @@
                         <Insets left="7.0" top="6.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Button mnemonicParsing="false" onAction="#openSaved" prefHeight="62.0" prefWidth="154.0" styleClass="innerPaneButton" stylesheets="@stylesheet.css" text="Збережені">
+                  <Button mnemonicParsing="false" onAction="#savedVacanciesPressed" prefHeight="62.0" prefWidth="154.0" styleClass="innerPaneButton" stylesheets="@stylesheet.css" text="Збережені">
                      <font>
                         <Font name="Century Gothic Bold Italic" size="16.0" />
                      </font>
@@ -145,7 +146,7 @@
                         <Insets left="7.0" top="6.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Button mnemonicParsing="false" onAction="#requests" prefHeight="62.0" prefWidth="154.0" styleClass="innerPaneButton" stylesheets="@stylesheet.css" text="Ваші заявки">
+                  <Button mnemonicParsing="false" onAction="#requestsPressed" prefHeight="62.0" prefWidth="154.0" styleClass="innerPaneButton" stylesheets="@stylesheet.css" text="Ваші заявки">
                      <font>
                         <Font name="Century Gothic Bold Italic" size="16.0" />
                      </font>
@@ -192,95 +193,127 @@
    <center>
       <VBox prefHeight="733.0" prefWidth="840.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#backPressed" prefHeight="30.0" prefWidth="110.0" stylesheets="@checkbox.css" text="Повернутись" underline="true">
-               <VBox.margin>
-                  <Insets left="50.0" top="50.0" />
-               </VBox.margin>
-            </Button>
-            <Label fx:id="vacancyTitle" maxHeight="-Infinity" prefHeight="76.0" prefWidth="874.0" text="Vacancy title">
+            <Label fx:id="vacancyTitle" maxHeight="-Infinity" prefHeight="91.0" prefWidth="837.0" text="Vacancy title">
                <font>
                   <Font name="Century Gothic Bold" size="36.0" />
                </font>
                <padding>
-                  <Insets bottom="10.0" left="200.0" right="20.0" top="10.0" />
+                  <Insets bottom="10.0" left="50.0" right="20.0" top="10.0" />
                </padding>
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
             </Label>
-            <HBox prefHeight="542.0" prefWidth="1331.0">
+            <HBox prefHeight="278.0" prefWidth="1331.0">
                <children>
-                  <VBox prefHeight="542.0" prefWidth="1309.0">
+                  <HBox maxWidth="-Infinity" prefHeight="279.0" prefWidth="1248.0">
                      <children>
-                        <Label fx:id="vacancyDesc" alignment="TOP_LEFT" prefHeight="290.0" prefWidth="611.0" text="Vacancy Description">
+                        <Label fx:id="vacancyDesc" alignment="TOP_LEFT" prefHeight="270.0" prefWidth="638.0" text="Vacancy Description">
                            <font>
                               <Font name="Century Gothic" size="18.0" />
                            </font>
                         </Label>
-                        <HBox prefHeight="38.0" prefWidth="876.0">
+                        <VBox prefHeight="524.0" prefWidth="564.0">
                            <children>
-                              <Label fx:id="vacancyType" prefHeight="38.0" prefWidth="449.0" text="Тип зайнятості">
-                                 <font>
-                                    <Font name="Century Gothic Bold Italic" size="18.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="vacancyExp" layoutX="10.0" layoutY="10.0" prefHeight="38.0" prefWidth="394.0" text="Досвід">
-                                 <font>
-                                    <Font name="Century Gothic Bold Italic" size="18.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="100.0" />
-                                 </HBox.margin>
-                              </Label>
+                              <HBox maxWidth="-Infinity" prefHeight="54.0" prefWidth="561.0">
+                                 <children>
+                                    <Label fx:id="vacancyCity" prefHeight="30.0" prefWidth="232.0" text="Місто">
+                                       <font>
+                                          <Font name="Century Gothic Bold Italic" size="18.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets top="14.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label fx:id="vacancySalary" layoutX="10.0" layoutY="10.0" prefHeight="54.0" prefWidth="316.0" text="Зарплатня">
+                                       <font>
+                                          <Font name="Century Gothic Bold Italic" size="22.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="40.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox maxWidth="-Infinity" prefHeight="46.0" prefWidth="510.0">
+                                 <children>
+                                    <Label fx:id="vacancyExp" layoutX="10.0" layoutY="10.0" prefHeight="38.0" prefWidth="233.0" text="Досвід">
+                                       <font>
+                                          <Font name="Century Gothic Bold Italic" size="18.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label fx:id="vacancyType" prefHeight="38.0" prefWidth="298.0" text="Тип зайнятості">
+                                       <font>
+                                          <Font name="Century Gothic Bold Italic" size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="30.0" />
+                                 </VBox.margin>
+                              </HBox>
                            </children>
-                        </HBox>
-                        <HBox prefHeight="57.0" prefWidth="1310.0">
-                           <children>
-                              <Label fx:id="vacancyCity" prefHeight="30.0" prefWidth="450.0" text="Місто">
-                                 <font>
-                                    <Font name="Century Gothic Bold Italic" size="18.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets top="14.0" />
-                                 </HBox.margin>
-                              </Label>
-                              <Label fx:id="vacancySalary" layoutX="10.0" layoutY="10.0" prefHeight="56.0" prefWidth="394.0" text="Зарплатня">
-                                 <font>
-                                    <Font name="Century Gothic Bold Italic" size="22.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="98.0" />
-                                 </HBox.margin>
-                              </Label>
-                           </children>
-                           <VBox.margin>
-                              <Insets top="30.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox prefHeight="57.0" prefWidth="1310.0">
-                           <children>
-                              <Button fx:id="saveButton" mnemonicParsing="false" onAction="#savePressed" prefHeight="41.0" prefWidth="119.0" styleClass="arrow" stylesheets="@CSS.css" text="Зберегти">
-                                 <HBox.margin>
-                                    <Insets left="50.0" />
-                                 </HBox.margin>
-                              </Button>
-                              <Button fx:id="offerButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#requestPressed" prefHeight="41.0" prefWidth="132.0" styleClass="arrow" stylesheets="@CSS.css" text="Відгукнутися">
-                                 <HBox.margin>
-                                    <Insets left="450.0" />
-                                 </HBox.margin>
-                              </Button>
-                           </children>
-                           <VBox.margin>
-                              <Insets top="30.0" />
-                           </VBox.margin>
-                        </HBox>
+                        </VBox>
                      </children>
-                  </VBox>
+                  </HBox>
                </children>
                <padding>
-                  <Insets left="200.0" />
+                  <Insets left="50.0" />
                </padding>
             </HBox>
+            <VBox prefHeight="334.0" prefWidth="1331.0">
+               <children>
+                  <Separator maxWidth="-Infinity" prefHeight="16.0" prefWidth="1000.0">
+                     <VBox.margin>
+                        <Insets left="150.0" />
+                     </VBox.margin>
+                  </Separator>
+                  <Label text="Текст вашої заявки">
+                     <font>
+                        <Font name="Century Gothic Italic" size="20.0" />
+                     </font>
+                     <padding>
+                        <Insets left="60.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <TextArea fx:id="requestText" maxWidth="-Infinity" prefHeight="194.0" prefWidth="900.0">
+                     <VBox.margin>
+                        <Insets left="50.0" />
+                     </VBox.margin>
+                  </TextArea>
+                  <HBox prefHeight="54.0" prefWidth="1247.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#backPressed" prefHeight="34.0" prefWidth="111.0" styleClass="transparent" stylesheets="@checkbox.css" text="Повернутись" underline="true">
+                           <HBox.margin>
+                              <Insets left="100.0" top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Label fx:id="warningText" prefHeight="23.0" prefWidth="492.0" textFill="#e73535">
+                           <font>
+                              <Font name="Century Gothic Italic" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="200.0" top="16.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Button fx:id="offerButton" mnemonicParsing="false" onAction="#confirmPressed" prefHeight="41.0" prefWidth="132.0" styleClass="arrow" stylesheets="@CSS.css" text="Відгукнутися">
+                           <HBox.margin>
+                              <Insets left="100.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </VBox>
          </children>
       </VBox>
    </center>

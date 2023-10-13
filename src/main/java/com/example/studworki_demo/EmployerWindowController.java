@@ -1,15 +1,22 @@
 package com.example.studworki_demo;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
+import javafx.util.Duration;
 
 import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static com.example.studworki_demo.Main.scene;
 
 
 public class EmployerWindowController implements Initializable {
@@ -18,7 +25,7 @@ public class EmployerWindowController implements Initializable {
         private TextField CityTxt;
 
         @FXML
-        private TextField descTxt;
+        private TextArea descTxt;
 
         @FXML
         private ChoiceBox<String> eploymentChoice;
@@ -27,7 +34,7 @@ public class EmployerWindowController implements Initializable {
         private ChoiceBox<String> expChoice;
 
         private final String[] eploymentOptions = {"Повна", "Часткова", "Віддалено"};
-        private final String[] expOptions = {"Без досвіду", "до 1 року"};
+        private final String[] expOptions = {"Без досвіду", "До 1 року"};
 
         @FXML
         private TextField salaryTxt;
@@ -45,22 +52,37 @@ public class EmployerWindowController implements Initializable {
     }
 
     public void donePressed(ActionEvent ignoredEvent) {
-        Vacancy vacancy = new Vacancy(titleTxt.getText(),expChoice.getValue(),eploymentChoice.getValue(),salaryTxt.getText(),descTxt.getText(),CityTxt.getText());
-        Main.allVacancies.add(vacancy);
-        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(Main.fileVacancies))) {
-            outputStream.writeObject(Main.allVacancies);
-        }catch (IOException e){
-            e.printStackTrace();
+        if(eploymentChoice.getValue() == null || expChoice.getValue()==null || titleTxt.getText().isEmpty()) {
+            successLabel.setTextFill(Color.RED);
+            successLabel.setText("Не всі поля заповнені");
+        }else if(!salaryTxt.getText().matches("\\d+")){
+            successLabel.setTextFill(Color.RED);
+            successLabel.setText("Некоректна зарплатня");
+        }else if(!CityTxt.getText().matches("\\D+")){
+            successLabel.setTextFill(Color.RED);
+            successLabel.setText("Некоректне місто");
+        } else if (descTxt.getText().isEmpty()) {
+            successLabel.setTextFill(Color.RED);
+            successLabel.setText("Порожній опис вакансії");
+        }else {
+            Vacancy vacancy = new Vacancy(titleTxt.getText(), expChoice.getValue(), eploymentChoice.getValue(), salaryTxt.getText(), descTxt.getText(), CityTxt.getText());
+            Main.allVacancies.add(vacancy);
+            try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(Main.fileVacancies))) {
+                outputStream.writeObject(Main.allVacancies);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            successLabel.setTextFill(Color.GREEN);
+            successLabel.setText("Вакансію успішно опубліковано!");
+            Timeline timeline = new Timeline(new KeyFrame(
+                    Duration.seconds(2),
+                    e -> {
+                        Main.primaryStage.setScene(Main.scene);
+                    }
+            ));
+            timeline.play();
+            System.out.println(Main.allVacancies);
         }
-
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        Main.primaryStage.setScene(Main.scene);
-        System.out.println(Main.allVacancies);
-
     }
 
     public void backPressed(ActionEvent ignoredEvent){

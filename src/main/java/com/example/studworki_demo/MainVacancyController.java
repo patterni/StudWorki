@@ -96,4 +96,5 @@ public class MainVacancyController {
         Application.openVacancyDetails(vacancy);
     }
 
+
 }

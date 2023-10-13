@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1600.0" snapToPixel="false" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.studworki_demo.SavedController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1600.0" snapToPixel="false" xmlns="http://javafx.com/javafx/17.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.studworki_demo.SavedController">
    <top>
       <HBox prefHeight="67.0" prefWidth="1315.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
          <children>
@@ -148,7 +148,7 @@
                         <Insets left="7.0" top="6.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="154.0" styleClass="innerPaneButton" stylesheets="@stylesheet.css" text="Ваші заявки">
+                  <Button mnemonicParsing="false" onAction="#requestsPressed" prefHeight="62.0" prefWidth="154.0" styleClass="innerPaneButton" stylesheets="@stylesheet.css" text="Ваші заявки">
                      <font>
                         <Font name="Century Gothic Bold Italic" size="16.0" />
                      </font>
@@ -176,7 +176,7 @@
                         <Insets left="15.0" top="12.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Button mnemonicParsing="false" styleClass="transparent" stylesheets="@stylesheet.css" text="Редагувати профіль">
+                  <Button mnemonicParsing="false" onAction="#editProfilePressed" styleClass="transparent" stylesheets="@stylesheet.css" text="Редагувати профіль">
                      <HBox.margin>
                         <Insets top="10.0" />
                      </HBox.margin>

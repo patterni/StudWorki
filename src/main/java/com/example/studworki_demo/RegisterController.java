@@ -1,11 +1,9 @@
 package com.example.studworki_demo;
 
 import javafx.animation.KeyFrame;
-import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -22,8 +20,6 @@ import static com.example.studworki_demo.Main.*;
 public class RegisterController {
 
     @FXML
-    private Button backButton;
-    @FXML
     private TextField confirmPasswordTextField;
     @FXML
     private TextField firstnameTextField;
@@ -32,59 +28,59 @@ public class RegisterController {
     @FXML
     private DatePicker datePicker;
     @FXML
-    private Label passwordMessage;
-    @FXML
-    private Label dateMessage;
-    @FXML
     private TextField passwordTextField;
-    @FXML
-    private Button registerButton;
     @FXML
     private Label registerMessage;
     @FXML
     private TextField usernameTextField;
 
-    @FXML
-    private Label usrnMessage;
 
+    private String firstname;
+    private String lastname;
+    private LocalDate dateOfBirth;
+    private String password;
+    private String username;
 
-    String firstname;
-    String lastname;
-    LocalDate dateOfBirth;
-    String password;
-    String username;
     public void registerButtonOnAction(ActionEvent event) {
         firstname = firstnameTextField.getText();
         lastname = lastnameTextField.getText();
         dateOfBirth = datePicker.getValue();
         password = passwordTextField.getText();
         username = usernameTextField.getText();
-        if(passwordTextField.getText().equals(confirmPasswordTextField.getText())){
-            LocalDate currentDate = LocalDate.now();
-            Period age = Period.between(dateOfBirth,currentDate);
-            boolean uniqeUsername = true;
-            if(age.getYears()>=16) {
-                for(Account account:accounts){
-                    if(username.equals(account.getUsername())){
-                        uniqeUsername = false;
-                        usrnMessage.setText("This username is already in use");
-                        break;
+
+        LocalDate currentDate = LocalDate.now();
+        Period age = null;
+        if(datePicker.getValue()!=null)
+            age = Period.between(dateOfBirth,currentDate);
+
+        boolean uniqueUsername = true;
+        for(Account account:accounts){
+            if(account.getUsername().equals(username)) {
+                uniqueUsername = false;
+                break;
+            }
+        }
+
+        if(firstnameTextField.getText().isEmpty() || lastnameTextField.getText().isEmpty() ||
+                usernameTextField.getText().isEmpty() || passwordTextField.getText().isEmpty()
+                || datePicker.getValue()==null || confirmPasswordTextField.getText().isEmpty())     {
+            registerMessage.setText("Не всі поля заповнені!");
+        }else if(age.getYears()<16) {
+            registerMessage.setText("Ви занадто молоді!");
+        }else if(!passwordTextField.getText().equals(confirmPasswordTextField.getText())) {
+            registerMessage.setText("Паролі не співпадають!");
+        } else if (!uniqueUsername) {
+            registerMessage.setText("Username вже використовується");
+        }else {
+            registerUser(file);
+            registerMessage.setText("Success, now you can login!");
+            Timeline timeline = new Timeline(new KeyFrame(
+                    Duration.seconds(2),
+                    e -> {
+                        Main.primaryStage.setScene(scene);
                     }
-                }
-                if(uniqeUsername) {
-                    registerUser(file);
-                    registerMessage.setText("Success, now you can login!");
-                    Timeline timeline = new Timeline(new KeyFrame(
-                            Duration.seconds(2),
-                            e -> {
-                                Main.primaryStage.setScene(scene);
-                            }
-                    ));
-                    timeline.play();
-                }}else
-                dateMessage.setText("You too young!");
-         }else {
-            passwordMessage.setText("Password doesn't match!");
+            ));
+            timeline.play();
         }
     }
     public void registerUser(File file) {

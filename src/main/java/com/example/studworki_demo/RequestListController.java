@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
@@ -13,7 +14,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class SavedController implements Initializable {
+public class RequestListController implements Initializable {
 
     @FXML
     private Label firstName;
@@ -24,47 +25,44 @@ public class SavedController implements Initializable {
     @FXML
     private Label secondName;
 
-    public static boolean savedSet = true;
 
     public void setUser(Account account) {
         firstName.setText(account.getFirstname());
         secondName.setText(account.getLastname());
     }
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-            int column = 0;
-            int row = 1;
-        for(Vacancy vacancy: LoginController.getLoggedIn().getUsersSavedVacancies()) {
+
+        int column = 0;
+        int row = 1;
+        for (Request request : LoginController.getLoggedIn().getUsersRequests()) {
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("mainVacancy.fxml"));
-            VBox mainVacancyBox;
+            fxmlLoader.setLocation(getClass().getResource("request.fxml"));
+            AnchorPane requestPane;
             try {
-                mainVacancyBox = fxmlLoader.load();
+                 requestPane = fxmlLoader.load();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-            MainVacancyController mainVacancyController = fxmlLoader.getController();
-            mainVacancyController.setData(vacancy);
-            mainVacancyBox.getProperties().put("fxmlLoader", fxmlLoader);
-            if (row == 3) {
-                row = 1;
-                column++;
+            RequestController requestController = fxmlLoader.getController();
+            requestController.setData(request);
+            requestPane.getProperties().put("fxmlLoader", fxmlLoader);
+            if (column == 1) {
+                column = 0;
+                row++;
             }
-            grid.add(mainVacancyBox, column, row++);
-            GridPane.setMargin(mainVacancyBox, new Insets(10));
+            grid.add(requestPane, column++, row);
+            GridPane.setMargin(requestPane, new Insets(10));
 
         }
     }
 
-
-    public void allVacanciesPressed(ActionEvent ignoredEvent) {
+    public void AllVacancies(ActionEvent event){
         Main.primaryStage.setScene(Application.mainScene);
-        savedSet=false;
     }
-    public void requestsPressed(ActionEvent event) throws IOException {
-        Application.openRequests();
+    public void savedVacancies(ActionEvent event) throws IOException {
+        Application.openSaved();
     }
 
     @FXML
@@ -72,6 +70,3 @@ public class SavedController implements Initializable {
         Application.openProfile();
     }
 }
-
-
-

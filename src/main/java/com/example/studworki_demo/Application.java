@@ -41,6 +41,31 @@ public class Application {
         Main.primaryStage.setScene(new Scene(root));
     }
 
+    public static void openRequestScene(Vacancy vacancy) throws IOException{
+        FXMLLoader loader = new FXMLLoader(Application.class.getResource("addRequest.fxml"));
+        Parent root = loader.load();
+        AddRequestController controller = loader.getController();
+        controller.setUser(LoginController.getLoggedIn());
+        controller.setVacancyInfo(vacancy);
+        Main.primaryStage.setScene(new Scene(root));
+    }
+
+    public static void openRequests() throws IOException {
+        FXMLLoader loader = new FXMLLoader(Application.class.getResource("requestsList.fxml"));
+        Parent root = loader.load();
+        RequestListController controller = loader.getController();
+        controller.setUser(LoginController.getLoggedIn());
+        Main.primaryStage.setScene(new Scene(root));
+    }
+
+
+    public static void openProfile() throws IOException {
+        FXMLLoader loader = new FXMLLoader(Application.class.getResource("editProfile.fxml"));
+        Parent root = loader.load();
+        EditProfileController controller = loader.getController();
+        controller.setCurrentProfileInfo(LoginController.getLoggedIn());
+        Main.primaryStage.setScene(new Scene(root));
+    }
 
 }
 

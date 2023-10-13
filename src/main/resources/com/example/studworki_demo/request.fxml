@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="pane" prefHeight="301.0" prefWidth="1073.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/17.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.studworki_demo.RequestController">
+   <children>
+      <Label fx:id="vacancyTitle" layoutX="44.0" layoutY="25.0" prefHeight="55.0" prefWidth="592.0" text="Title">
+         <font>
+            <Font name="Century Gothic Bold" size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="vacancySalary" layoutX="44.0" layoutY="103.0" prefHeight="46.0" prefWidth="430.0" text="salary">
+         <font>
+            <Font name="Century Gothic Bold Italic" size="26.0" />
+         </font>
+      </Label>
+      <Label fx:id="typeVacancy" layoutX="537.0" layoutY="103.0" prefHeight="46.0" prefWidth="448.0" text="EmpType">
+         <font>
+            <Font name="Century Gothic Italic" size="26.0" />
+         </font>
+      </Label>
+      <Label fx:id="requestText" layoutX="44.0" layoutY="156.0" prefHeight="131.0" prefWidth="992.0">
+         <font>
+            <Font name="Century Gothic Italic" size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -13,6 +13,7 @@ public class Account implements Serializable {
     private String password;
 
     private ArrayList<Vacancy> usersSavedVacancies;
+    private ArrayList<Request> usersRequests;
 
     public Account() {
         // Default constructor
@@ -25,7 +26,10 @@ public class Account implements Serializable {
         this.password = password;
         this.username=username;
         this.usersSavedVacancies=new ArrayList<>();
+        this.usersRequests = new ArrayList<>();
     }
+
+    public void addToUserRequests(Request request){ this.usersRequests.add(request);}
 
     public void addToUserSavedList(Vacancy vacancy){
         this.usersSavedVacancies.add(vacancy);
@@ -34,6 +38,7 @@ public class Account implements Serializable {
     public void removeOutUserSavedList(Vacancy vacancy){
         this.usersSavedVacancies.remove(vacancy);
     }
+    public ArrayList<Request> getUsersRequests(){return  usersRequests;}
 
     public ArrayList<Vacancy> getUsersSavedVacancies(){
         return usersSavedVacancies;
@@ -59,4 +64,23 @@ public class Account implements Serializable {
         return username;
     }
 
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

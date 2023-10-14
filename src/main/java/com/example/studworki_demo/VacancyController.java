@@ -34,7 +34,7 @@ public class VacancyController {
     }
 
     @FXML
-    public void detailsPressed(ActionEvent event) throws IOException {
+    public void detailsPressed() throws IOException {
         Application.openVacancyDetails(vacancy);
     }
 

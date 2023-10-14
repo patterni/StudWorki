@@ -2,19 +2,17 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1600.0" snapToPixel="false" xmlns="http://javafx.com/javafx/17.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.studworki_demo.EditProfileController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1600.0" snapToPixel="false" xmlns="http://javafx.com/javafx/17.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.studworki_demo.CoursesSceneController">
    <top>
       <HBox prefHeight="67.0" prefWidth="1315.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
          <children>
@@ -82,7 +80,7 @@
                         <Insets left="5.0" top="6.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Button mnemonicParsing="false" onAction="#allVacanciesPressed" prefHeight="62.0" prefWidth="154.0" styleClass="innerPaneButton" stylesheets="@stylesheet.css" text="Вакансії">
+                  <Button mnemonicParsing="false" onAction="#openAllVacancies" prefHeight="62.0" prefWidth="154.0" styleClass="innerPaneButton" stylesheets="@stylesheet.css" text="Вакансії">
                      <font>
                         <Font name="Century Gothic Bold Italic" size="16.0" />
                      </font>
@@ -102,7 +100,7 @@
                         <Insets left="5.0" top="6.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Button mnemonicParsing="false" onAction="#openCourses" prefHeight="62.0" prefWidth="154.0" styleClass="innerPaneButton" stylesheets="@stylesheet.css" text="Курси">
+                  <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="154.0" styleClass="innerPaneButton" stylesheets="@stylesheet.css" text="Курси">
                      <font>
                         <Font name="Century Gothic Bold Italic" size="16.0" />
                      </font>
@@ -148,7 +146,7 @@
                         <Insets left="7.0" top="6.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Button mnemonicParsing="false" onAction="#requests" prefHeight="62.0" prefWidth="154.0" styleClass="innerPaneButton" stylesheets="@stylesheet.css" text="Ваші заявки">
+                  <Button mnemonicParsing="false" onAction="#openRequestsScene" prefHeight="62.0" prefWidth="154.0" styleClass="innerPaneButton" stylesheets="@stylesheet.css" text="Ваші заявки">
                      <font>
                         <Font name="Century Gothic Bold Italic" size="16.0" />
                      </font>
@@ -176,7 +174,7 @@
                         <Insets left="15.0" top="12.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Button mnemonicParsing="false" styleClass="transparent" stylesheets="@stylesheet.css" text="Редагувати профіль">
+                  <Button mnemonicParsing="false" onAction="#openProfileInfo" styleClass="transparent" stylesheets="@stylesheet.css" text="Редагувати профіль">
                      <HBox.margin>
                         <Insets top="10.0" />
                      </HBox.margin>
@@ -193,162 +191,31 @@
       </VBox>
    </left>
    <center>
-      <VBox prefHeight="733.0" prefWidth="840.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="733.0" prefWidth="840.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="37.0" prefWidth="1331.0">
-               <children>
-                  <Label text="Редагування профілю">
-                     <font>
-                        <Font name="Century Gothic Bold Italic" size="28.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="70.0" />
-                     </HBox.margin>
-                  </Label>
-               </children>
+            <Label maxHeight="-Infinity" prefHeight="13.0" prefWidth="306.0" text="Курси">
+               <font>
+                  <Font name="Century Gothic Bold" size="24.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+               </padding>
                <VBox.margin>
-                  <Insets left="30.0" top="50.0" />
+                  <Insets left="80.0" />
                </VBox.margin>
-            </HBox>
-            <HBox layoutX="40.0" layoutY="60.0" prefHeight="37.0" prefWidth="1331.0">
+            </Label>
+            <VBox prefHeight="680.0" prefWidth="1331.0">
                <children>
-                  <Label fx:id="welcomeTxt" text="Вітаємо, Павло!">
-                     <font>
-                        <Font name="Century Gothic Italic" size="24.0" />
-                     </font>
-                  </Label>
-               </children>
-               <VBox.margin>
-                  <Insets left="100.0" top="30.0" />
-               </VBox.margin>
-            </HBox>
-            <HBox prefHeight="82.0" prefWidth="1331.0">
-               <children>
-                  <VBox maxWidth="-Infinity" prefHeight="67.0" prefWidth="250.0">
+                  <HBox prefHeight="650.0" prefWidth="1331.0">
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
                      <children>
-                        <Label text="Ім'я">
-                           <font>
-                              <Font name="Century Gothic" size="20.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="name" prefHeight="26.0" prefWidth="408.0" />
+                        <WebView fx:id="webView" prefHeight="656.0" prefWidth="1256.0" />
                      </children>
-                  </VBox>
-                  <VBox layoutX="10.0" layoutY="10.0" maxWidth="-Infinity" prefHeight="67.0" prefWidth="250.0">
-                     <children>
-                        <Label text="Прізвище">
-                           <font>
-                              <Font name="Century Gothic" size="20.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="surname" prefHeight="26.0" prefWidth="408.0" />
-                     </children>
-                     <HBox.margin>
-                        <Insets left="200.0" />
-                     </HBox.margin>
-                  </VBox>
+                  </HBox>
                </children>
-               <VBox.margin>
-                  <Insets left="100.0" top="40.0" />
-               </VBox.margin>
-            </HBox>
-            <HBox layoutX="110.0" layoutY="206.0" prefHeight="194.0" prefWidth="1231.0">
-               <children>
-                  <VBox maxWidth="-Infinity" prefHeight="67.0" prefWidth="250.0">
-                     <children>
-                        <Label text="Username">
-                           <font>
-                              <Font name="Century Gothic" size="20.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="username" prefHeight="26.0" prefWidth="408.0" />
-                        <Label layoutX="10.0" layoutY="10.0" text="Дата народження">
-                           <font>
-                              <Font name="Century Gothic" size="20.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets top="75.0" />
-                           </VBox.margin>
-                        </Label>
-                        <DatePicker fx:id="newDate" prefHeight="26.0" prefWidth="250.0" />
-                     </children>
-                  </VBox>
-                  <VBox layoutX="10.0" layoutY="10.0" maxWidth="-Infinity" prefHeight="67.0" prefWidth="250.0">
-                     <children>
-                        <Label text="Змінити пароль?">
-                           <font>
-                              <Font name="Century Gothic" size="20.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="10.0" layoutY="10.0" text="Ваш поточний пароль:">
-                           <font>
-                              <Font name="Century Gothic" size="20.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets top="30.0" />
-                           </VBox.margin>
-                        </Label>
-                        <PasswordField fx:id="oldPassword" />
-                     </children>
-                     <HBox.margin>
-                        <Insets left="200.0" />
-                     </HBox.margin>
-                  </VBox>
-                  <VBox layoutX="460.0" layoutY="10.0" maxWidth="-Infinity" prefHeight="193.0" prefWidth="326.0">
-                     <children>
-                        <Label layoutX="10.0" layoutY="10.0" text="Новий пароль">
-                           <font>
-                              <Font name="Century Gothic" size="20.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets top="55.0" />
-                           </VBox.margin>
-                        </Label>
-                        <PasswordField fx:id="newPassword" />
-                        <Label layoutX="10.0" layoutY="40.0" text="Підтвердження нового паролю">
-                           <font>
-                              <Font name="Century Gothic" size="20.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets top="20.0" />
-                           </VBox.margin>
-                        </Label>
-                        <PasswordField fx:id="newPasswordConfirm" />
-                     </children>
-                     <HBox.margin>
-                        <Insets left="60.0" />
-                     </HBox.margin>
-                  </VBox>
-               </children>
-               <VBox.margin>
-                  <Insets left="100.0" top="40.0" />
-               </VBox.margin>
-            </HBox>
-            <HBox prefHeight="68.0" prefWidth="1331.0">
-               <children>
-                  <Label fx:id="warningText" prefHeight="32.0" prefWidth="407.0" textAlignment="CENTER" textFill="#d71515">
-                     <font>
-                        <Font name="Century Gothic" size="18.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="500.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Button mnemonicParsing="false" onAction="#changePasswordPressed" prefHeight="30.0" prefWidth="126.0" stylesheets="@checkbox.css" text="Змінити пароль" underline="true">
-                     <HBox.margin>
-                        <Insets left="170.0" />
-                     </HBox.margin>
-                  </Button>
-               </children>
-            </HBox>
-            <HBox prefHeight="44.0" prefWidth="1331.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#savePressed" prefHeight="41.0" prefWidth="120.0" stylesheets="@CSS.css" text="Зберегти" />
-               </children>
-               <VBox.margin>
-                  <Insets left="100.0" top="40.0" />
-               </VBox.margin>
-            </HBox>
+            </VBox>
          </children>
       </VBox>
    </center>

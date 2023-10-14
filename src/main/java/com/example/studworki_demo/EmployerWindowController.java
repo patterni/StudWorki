@@ -2,7 +2,6 @@ package com.example.studworki_demo;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
@@ -15,8 +14,6 @@ import javafx.util.Duration;
 import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import static com.example.studworki_demo.Main.scene;
 
 
 public class EmployerWindowController implements Initializable {
@@ -51,7 +48,8 @@ public class EmployerWindowController implements Initializable {
         expChoice.getItems().addAll(expOptions);
     }
 
-    public void donePressed(ActionEvent ignoredEvent) {
+    @FXML
+    public void donePressed() {
         if(eploymentChoice.getValue() == null || expChoice.getValue()==null || titleTxt.getText().isEmpty()) {
             successLabel.setTextFill(Color.RED);
             successLabel.setText("Не всі поля заповнені");
@@ -76,16 +74,15 @@ public class EmployerWindowController implements Initializable {
             successLabel.setText("Вакансію успішно опубліковано!");
             Timeline timeline = new Timeline(new KeyFrame(
                     Duration.seconds(2),
-                    e -> {
-                        Main.primaryStage.setScene(Main.scene);
-                    }
+                    e -> Main.primaryStage.setScene(Main.scene)
             ));
             timeline.play();
             System.out.println(Main.allVacancies);
         }
     }
 
-    public void backPressed(ActionEvent ignoredEvent){
+    @FXML
+    public void backPressed(){
         Main.primaryStage.setScene(Main.scene);
     }
 }

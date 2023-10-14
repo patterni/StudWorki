@@ -1,6 +1,5 @@
 package com.example.studworki_demo;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -26,7 +25,8 @@ public class LoginController {
 
     private static Account loggedIn;
 
-    public void loginButtonOnAction(ActionEvent event) throws IOException {
+    @FXML
+    public void loginButtonOnAction() throws IOException {
         if(!userNameTextField.getText().isBlank() && !passwordTextField.getText().isBlank()){
             validateLogin();
         }else {

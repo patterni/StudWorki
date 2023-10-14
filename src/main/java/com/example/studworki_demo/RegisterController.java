@@ -41,7 +41,8 @@ public class RegisterController {
     private String password;
     private String username;
 
-    public void registerButtonOnAction(ActionEvent event) {
+    @FXML
+    public void registerButtonOnAction() {
         firstname = firstnameTextField.getText();
         lastname = lastnameTextField.getText();
         dateOfBirth = datePicker.getValue();
@@ -103,7 +104,8 @@ public class RegisterController {
         }
     }
 
-    public void backButtonOnAction(ActionEvent e){
+    @FXML
+    public void backButtonOnAction(){
         Main.primaryStage.setScene(scene);
     }
 }

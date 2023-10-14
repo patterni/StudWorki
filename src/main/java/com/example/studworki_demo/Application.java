@@ -67,6 +67,14 @@ public class Application {
         Main.primaryStage.setScene(new Scene(root));
     }
 
+    public static void openCourses() throws IOException {
+        FXMLLoader loader = new FXMLLoader(Application.class.getResource("coursesScene.fxml"));
+        Parent root = loader.load();
+        CoursesSceneController controller = loader.getController();
+        controller.setUser(LoginController.getLoggedIn());
+        Main.primaryStage.setScene(new Scene(root));
+    }
+
 }
 
 

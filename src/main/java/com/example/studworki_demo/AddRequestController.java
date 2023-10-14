@@ -1,6 +1,5 @@
 package com.example.studworki_demo;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -12,9 +11,6 @@ public class AddRequestController {
 
     @FXML
     private Label firstName;
-
-    @FXML
-    private Button offerButton;
 
     @FXML
     private TextArea requestText;
@@ -44,23 +40,28 @@ public class AddRequestController {
 
     @FXML
     private Label warningText;
+
     @FXML
-    void allVacanciesPressed(ActionEvent event) {
-        Main.primaryStage.setScene(Application.mainScene);
+    void allVacanciesPressed() throws IOException {
+        Application.open(LoginController.getLoggedIn());
     }
 
     @FXML
-    void savedVacanciesPressed(ActionEvent event) throws IOException {
+    void savedVacanciesPressed() throws IOException {
         Application.openSaved();
     }
+    @FXML
+    public void openCourses() throws IOException {
+        Application.openCourses();
+    }
 
     @FXML
-    void requestsPressed(ActionEvent event) throws IOException {
+    void requestsPressed() throws IOException {
         Application.openRequests();
     }
 
     @FXML
-    void backPressed(ActionEvent event) throws IOException {
+    void backPressed() throws IOException {
         Application.openVacancyDetails(vacancy);
     }
 
@@ -81,7 +82,8 @@ public class AddRequestController {
         vacancyExp.setText("Досвід: " + vacancy.getExperience());
     }
 
-    public void confirmPressed(ActionEvent event){
+    @FXML
+    public void confirmPressed(){
         warningText.setText("");
         if(!requestText.getText().isEmpty()) {
             Request request = new Request(vacancy, requestText.getText());
@@ -91,7 +93,6 @@ public class AddRequestController {
             Main.primaryStage.setScene(Application.mainScene);
         }else
             warningText.setText("Заявка порожня");
-
     }
 
 

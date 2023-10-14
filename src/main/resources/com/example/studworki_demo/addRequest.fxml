@@ -80,7 +80,7 @@
                         <Insets left="5.0" top="6.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Button mnemonicParsing="false" onAction="#allVacanciesPressed" prefHeight="62.0" prefWidth="154.0" styleClass="innerPaneButton" stylesheets="@stylesheet.css" text="Усі вакансії">
+                  <Button mnemonicParsing="false" onAction="#allVacanciesPressed" prefHeight="62.0" prefWidth="154.0" styleClass="innerPaneButton" stylesheets="@stylesheet.css" text="Вакансії">
                      <font>
                         <Font name="Century Gothic Bold Italic" size="16.0" />
                      </font>
@@ -100,7 +100,7 @@
                         <Insets left="5.0" top="6.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="154.0" styleClass="innerPaneButton" stylesheets="@stylesheet.css" text="Категорії">
+                  <Button mnemonicParsing="false" onAction="#openCourses" prefHeight="62.0" prefWidth="154.0" styleClass="innerPaneButton" stylesheets="@stylesheet.css" text="Курси">
                      <font>
                         <Font name="Century Gothic Bold Italic" size="16.0" />
                      </font>

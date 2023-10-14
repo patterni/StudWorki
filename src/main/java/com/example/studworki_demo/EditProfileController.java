@@ -1,6 +1,5 @@
 package com.example.studworki_demo;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -47,18 +46,22 @@ public class EditProfileController {
     private Label welcomeTxt;
 
     @FXML
-    void allVacanciesPressed(ActionEvent event) throws IOException {
+    void allVacanciesPressed() throws IOException {
         Application.open(LoginController.getLoggedIn());
     }
 
     @FXML
-    void openSaved(ActionEvent event) throws IOException {
+    void openSaved() throws IOException {
         Application.openSaved();
     }
 
     @FXML
-    void requests(ActionEvent event) throws IOException {
+    void requests() throws IOException {
         Application.openRequests();
+    }
+    @FXML
+    public void openCourses() throws IOException {
+        Application.openCourses();
     }
 
     public void setCurrentProfileInfo(Account account){
@@ -71,7 +74,7 @@ public class EditProfileController {
     }
 
     @FXML
-    public void savePressed(ActionEvent event){
+    public void savePressed(){
         warningText.setText("");
         boolean success = true;
         for(Account account : Main.accounts) {
@@ -116,7 +119,7 @@ public class EditProfileController {
     }
 
     @FXML
-    public void changePasswordPressed(ActionEvent event){
+    public void changePasswordPressed(){
         warningText.setText("");
         Account currentProfile = LoginController.getLoggedIn();
 

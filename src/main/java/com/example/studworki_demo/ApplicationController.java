@@ -119,7 +119,7 @@ public class ApplicationController implements Initializable {
                 popularOffersLayout.getChildren().add(vacancyBox);
             }
 
-
+            nodes.clear();
             for (Vacancy vacancy : Main.allVacancies) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("mainVacancy.fxml"));
@@ -146,18 +146,6 @@ public class ApplicationController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        AnimationTimer timer = new AnimationTimer() {
-            @Override
-            public void handle(long now) {
-               if(!SavedController.savedSet) {
-                   updateVacancies();
-                   SavedController.savedSet = true;
-               }
-            }
-        };
-        timer.start();
-
     }
 
 
@@ -310,7 +298,8 @@ public class ApplicationController implements Initializable {
         showElements(currentNodes);
     }
 
-    public void searchPressed(ActionEvent ignoredEvent){
+    @FXML
+    public void searchPressed(){
         ArrayList<VBox> foundVacancies = (ArrayList<VBox>) searchVacanciesByName(searchBar.getText());
         showElements(foundVacancies);
     }
@@ -326,17 +315,21 @@ public ArrayList<VBox> getCurrentNodes(){
     }
     return vboxList;
 }
-
-public void openSaved(ActionEvent ignoredEvent) throws IOException {
+@FXML
+public void openSaved() throws IOException {
       Application.openSaved();
-      SavedController.savedSet=true;
 }
-
-public void openRequestsScene(ActionEvent event) throws IOException {
+@FXML
+public void openCourses() throws IOException {
+        Application.openCourses();
+}
+@FXML
+public void openRequestsScene() throws IOException {
         Application.openRequests();
 }
 
-public void openProfileInfo(ActionEvent event) throws IOException {
+@FXML
+public void openProfileInfo() throws IOException {
         Application.openProfile();
 }
 

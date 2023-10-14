@@ -1,6 +1,5 @@
 package com.example.studworki_demo;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -77,7 +76,8 @@ public class MainVacancyController {
         return vacancy.getJobTitle();
     }
 
-    public void savePressed(ActionEvent ignoredEvent){
+    @FXML
+    public void savePressed(){
         if(saveButton.getText().equals("Зберегти")){
             LoginController.getLoggedIn().addToUserSavedList(vacancy);
             RegisterController.updateUsersInFile();
@@ -92,7 +92,8 @@ public class MainVacancyController {
         System.out.println(LoginController.getLoggedIn().getUsersSavedVacancies());
     }
 
-    public void detailsPressed(ActionEvent ignoredEvent) throws IOException {
+    @FXML
+    public void detailsPressed() throws IOException {
         Application.openVacancyDetails(vacancy);
     }
 

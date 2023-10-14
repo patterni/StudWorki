@@ -13,9 +13,6 @@ public class VacancyDetailsController {
     private Label firstName;
 
     @FXML
-    private Button offerButton;
-
-    @FXML
     private Button saveButton;
 
     @FXML
@@ -42,9 +39,8 @@ public class VacancyDetailsController {
     private Vacancy vacancy;
 
     @FXML
-    void openSaved(ActionEvent event) throws IOException {
+    void openSaved() throws IOException {
         Application.openSaved();
-        SavedController.savedSet=true;
     }
 
 
@@ -54,7 +50,7 @@ public class VacancyDetailsController {
     }
 
     @FXML
-    public void backPressed(ActionEvent event){
+    public void backPressed(){
         Main.primaryStage.setScene(Application.mainScene);
     }
 
@@ -81,7 +77,8 @@ public class VacancyDetailsController {
         }
     }
 
-    public void savePressed(ActionEvent ignoredEvent){
+    @FXML
+    public void savePressed(){
         if(saveButton.getText().equals("Зберегти")){
             LoginController.getLoggedIn().addToUserSavedList(vacancy);
             RegisterController.updateUsersInFile();
@@ -96,16 +93,22 @@ public class VacancyDetailsController {
         System.out.println(LoginController.getLoggedIn().getUsersSavedVacancies());
     }
 
-    public void allVacanciesPressed(ActionEvent ignoredEvent) {
-        Main.primaryStage.setScene(Application.mainScene);
-        SavedController.savedSet=false;
+    @FXML
+    public void allVacanciesPressed() throws IOException {
+        Application.open(LoginController.getLoggedIn());
     }
-
-    public void requestPressed(ActionEvent event) throws IOException {
+    @FXML
+    public void requestPressed() throws IOException {
         Application.openRequestScene(vacancy);
     }
 
-    public void requests(ActionEvent event) throws IOException {
+    @FXML
+    public void openCourses() throws IOException {
+        Application.openCourses();
+    }
+
+    @FXML
+    public void requests() throws IOException {
         Application.openRequests();
     }
 

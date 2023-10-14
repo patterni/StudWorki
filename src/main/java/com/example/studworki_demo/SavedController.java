@@ -24,7 +24,6 @@ public class SavedController implements Initializable {
     @FXML
     private Label secondName;
 
-    public static boolean savedSet = true;
 
     public void setUser(Account account) {
         firstName.setText(account.getFirstname());
@@ -59,17 +58,23 @@ public class SavedController implements Initializable {
     }
 
 
-    public void allVacanciesPressed(ActionEvent ignoredEvent) {
-        Main.primaryStage.setScene(Application.mainScene);
-        savedSet=false;
+    @FXML
+    public void allVacanciesPressed() throws IOException {
+        Application.open(LoginController.getLoggedIn());
     }
-    public void requestsPressed(ActionEvent event) throws IOException {
+    @FXML
+    public void requestsPressed() throws IOException {
         Application.openRequests();
     }
 
     @FXML
-    public void editProfilePressed(ActionEvent event) throws IOException {
+    public void editProfilePressed() throws IOException {
         Application.openProfile();
+    }
+
+    @FXML
+    public void openCourses() throws IOException {
+        Application.openCourses();
     }
 }
 

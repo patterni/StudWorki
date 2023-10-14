@@ -58,15 +58,23 @@ public class RequestListController implements Initializable {
         }
     }
 
-    public void AllVacancies(ActionEvent event){
-        Main.primaryStage.setScene(Application.mainScene);
+    @FXML
+    public void AllVacancies(ActionEvent event) throws IOException {
+        Application.open(LoginController.getLoggedIn());
     }
+
+    @FXML
     public void savedVacancies(ActionEvent event) throws IOException {
         Application.openSaved();
     }
 
     @FXML
-    public void editProfilePressed(ActionEvent event) throws IOException {
+    public void openCourses() throws IOException {
+        Application.openCourses();
+    }
+
+    @FXML
+    public void editProfilePressed() throws IOException {
         Application.openProfile();
     }
 }
